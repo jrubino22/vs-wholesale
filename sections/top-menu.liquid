@@ -1,0 +1,95 @@
+{% if section.settings.enable %}
+
+{% capture cart_status %}
+  <span class="header__cart__status">
+    <span data-header-cart-price="{{ cart.total_price }}">
+      <span class="wcp-original-cart-total">{{ cart.total_price | money}}</span>
+    <span class="wcp-cart-total"></span>
+    <div class="additional-notes">
+        <span class="wcp-minimums-note"></span>
+        <span class="wcp-extra-note "></span>
+    </div>{% render "wcp_multi_currency_msg" %}
+    </span>
+    <span data-header-cart-count="{{cart.item_count}}">
+      ({{cart.item_count}})
+    </span>
+    {% assign cart_full =  false %}
+    {%- if cart.item_count > 1 -%}
+      {% assign cart_full =  true %}
+    {%- endif -%}
+    <span data-header-cart-full="{{ cart_full }}"></span>
+  </span>
+{% endcapture %}
+
+<div class="announcement__wrapper" style="display: flex;align-items: center; background: #000 !important;">
+  <div class="header__menu__inner" style="flex: 1">
+    
+    {% if section.settings.social_icons %}
+      {%- assign social_accounts = 'Facebook, Twitter, Tiktok, Pinterest, Instagram, Snapchat, Tumblr, Linkedin, YouTube, Vimeo, Medium, ' | split: ', ' -%}
+      {%- for social in social_accounts -%}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+
+        {%- if settings[social_link] != blank -%}
+          <a style="padding-left: 10px;padding-right: 10px;font-size: 14px;display: flex;align-items: center;" href="{{ settings[social_link] }}" title="{{ social }}">
+            {% render 'social-icon' handle: social_handle %}
+            <span class="visually-hidden">facebook</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {% endif %}
+        
+    <a style="padding-left: 10px;padding-right: 10px;font-size: 14px;display: flex;align-items: center;" href="{{ section.settings.telephone }}" title="telephone">
+      {{ section.settings.telephone }}
+    </a>
+    
+    {% assign linklist = linklists[section.settings.top_menu] %}
+    {% for link in linklist.links %}
+    <a class="navtext" style="{% if forloop.last %} flex: 1; {% endif %}padding-left: 10px;padding-right: 10px;font-size: 14px;display: flex;align-items: center;" href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+    
+    <a style=" background: #9a9a9a" href="{{ routes.cart_url }}" 
+       class="navlink navlink--cart" 
+       data-drawer-toggle="drawer-cart">
+      {% render 'icon-cart' %}
+      <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
+      {{ cart_status }}
+    </a>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Top Menu",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Show Top Menu",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "social_icons",
+      "label": "Show social icons"
+    },
+    {
+      "type": "text",
+      "id": "telephone",
+      "label": "Telephone info"
+    },
+    {
+      "type": "link_list",
+      "label": "Menu",
+      "id": "top_menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_account",
+      "default": true,
+      "label": "Show account link in header"
+    }
+  ]
+}
+{% endschema %}

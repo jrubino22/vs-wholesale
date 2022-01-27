@@ -1,0 +1,136 @@
+<!-- /sections/search.liquid -->
+
+<div class="wrapper pt2 pb4">
+  <div class="grid">
+    <div class="grid__item medium-up--two-thirds medium-up--push-one-sixth">
+
+      {% if search.performed %}
+
+        {% paginate search.results by 10 %}        
+
+          {% render 'search-bar' %}
+
+          {%- if search.terms.size > 0 -%}
+            <div class="note">
+              <p>
+                {%- if search.results_count > 0 -%}
+                  {{ 'general.search.results_for' | t }} <span class="strong">{{ search.terms | escape }}</span>
+                {%- else -%}
+                  {{ 'general.search.no_results_for' | t }} <span class="strong">{{ search.terms | escape }}</span>
+                {%- endif -%}
+              </p>
+            </div>
+          {%- endif -%}
+
+
+          {% for item in search.results %}{%- include 'wcp_discount' with item -%}
+            <div class="grid">
+
+              {% if item.featured_media.preview_image %}
+                {% comment %}
+                  We have a featured_media, so it's likely a product
+                {% endcomment %}
+                <div class="grid__item one-sixth">
+                  <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                    {{ item.featured_media.preview_image | img_url: 'medium' | img_tag: item.featured_media.alt }}
+                  </a>
+                </div>
+                <div class="grid__item five-sixths">
+              {% elsif item.object_type == 'article' and item.image %}
+                <div class="grid__item one-sixth">
+                <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                  {{ item | image_url: 'medium' | img_tag: item.title }}
+                </a>
+                </div>
+                <div class="grid__item five-sixths">
+              {% else %}
+                <div class="grid__item small-up--five-sixths small-up--push-one-sixth">
+              {% endif %}
+
+                <p class="h6--body product__inline__title">{{ item.title | link_to: item.url }}</p>
+   
+                {% if customer and customer.tags contains 'retail' or customer.tags contains 'distributor' or customer.tags contains 'master-distributor' %}
+                <p class="product__inline__price">
+                  {%- assign product = item -%}
+                  {%- assign on_sale = false -%}
+                  {%- if wcp_compare_at_price > wcp_price -%}
+                    {%- assign on_sale = true -%}
+                  {%- endif -%}
+                  {%- assign sold_out = true -%}
+                  {%- if product.available -%}
+                    {%- assign sold_out = false -%}
+                  {%- endif -%}
+                  {%- assign current_variant = product.first_available_variant -%}
+                  <span class="price{% if on_sale %} on-sale{% endif %}">
+                    {% if product.price_varies %}{{ 'products.general.from' | t }} {% endif %}
+                    {{ wcp_price | money }}
+                  </span>
+                  {% if sold_out %}
+                  <br /><em>{{ 'products.product.sold_out' | t }}</em>
+                  {% endif %}
+                  {% if on_sale %}
+                  <span class="compare-at">
+                    {{ wcp_compare_at_price | money }}
+                  </span>
+                  {% endif %}
+                  {% if current_variant.unit_price %}
+                    {% capture unit_price_separator %}
+                      <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+                    {% endcapture %}
+                    {% capture unit_price_base_unit %}
+                      {% if current_variant.unit_price_measurement.reference_value != 1 %}
+                        {{ current_variant.unit_price_measurement.reference_value }}
+                      {% endif %}
+                      {{ current_variant.unit_price_measurement.reference_unit }}
+                    {% endcapture %}
+                    <br>
+                      <span class="visually-hidden">{{ 'products.product.unit_price_label' | t }}</span>
+                      <span class="price-per-unit">{{ current_variant.unit_price | money }}{{ unit_price_separator }}{{ unit_price_base_unit }}</span>
+                  {% endif %}
+                  {% if product.metafields.spr.reviews %}
+                    <br />
+                    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                  {% endif %}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+            {% unless forloop.last %}<hr>{% endunless %}
+          {% endfor %}
+
+
+          {% if paginate.pages > 1 %}
+            <div class="text-center pt2">
+              {% render 'pagination-custom', paginate: paginate %}
+            </div>
+          {% endif %}
+
+        {% endpaginate %}
+
+      {% else %}
+        {% comment %}search.performed is false {% endcomment %}
+        {% render 'search-bar' %}
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Search"
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign wcp_prd_var = product -%}
+{%- unless wcp_prd_var == empty -%}
+            <script type='application/json' class='{%- for wcp_v in wcp_prd_var.variants -%} wcp_json_{{wcp_v.id}} {%- endfor -%} wcp_json_{{ wcp_prd_var.id }} wcp_json' id='wcp_json_{{ wcp_prd_var.id }}' > 
+                {%- render 'wcp_product_json' with wcp_prd_var -%}
+            </script>
+{%- endunless -%}

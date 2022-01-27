@@ -1,0 +1,378 @@
+{
+  "sections": {
+    "hero": {
+      "type": "section-hero",
+      "disabled": true,
+      "settings": {
+        "bg_position": "center-center",
+        "height": "use_screen_one_fifth",
+        "overlay_opacity": 50,
+        "overlay_color": "#000000",
+        "kicker": "",
+        "title": "About",
+        "richtext": "",
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "btn"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+        "kicker": "",
+        "show_title": true,
+        "show_content": false,
+        "text_size": 1,
+        "align_text": "text-left",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632752855ecf6fdd9": {
+      "type": "section-richtext",
+      "settings": {
+        "kicker": "",
+        "title": "Mission Statement",
+        "text": "<p><strong>V Syndicate<\/strong> works to develop versatile accessories with unique artwork that allows users to stay on their grind and roll with expression! <\/p>",
+        "text_size": 1,
+        "text_columns": 1,
+        "align_text": "text-center",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--link",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632752930ad44de75": {
+      "type": "section-columns",
+      "blocks": {
+        "1632752930ad44de75-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/STAFF_ICONS_Tom-29_480x480_e5598920-b4a7-4f37-87a9-abf7c9502f75.png",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632752930ad44de75-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/STAFF_ICONS_05-05-21-05_240x240_95789f80-bd02-4546-9deb-662cde5a2de5.png",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632752930ad44de75-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/STAFF_ICONS_05-05-21-02_1_240x240_f186ac08-a6c2-4a9b-9a8d-820331e85fea.png",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "a5c7cee4-bc04-4c28-9332-0321fd26369c": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/STAFF_ICONS-17_1_1_4_480x480_a5ea06c0-c5ac-4fb8-b027-cd082281da84.png",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "4474f58d-9eb1-4e8c-ab92-541f889863f9": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/STAFF_ICONS-06_1_240x240_f5a881b0-8648-4b28-8203-144bc661d051.png",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "1632752930ad44de75-0",
+        "1632752930ad44de75-1",
+        "1632752930ad44de75-2",
+        "a5c7cee4-bc04-4c28-9332-0321fd26369c",
+        "4474f58d-9eb1-4e8c-ab92-541f889863f9"
+      ],
+      "settings": {
+        "title": "",
+        "bg": "section bg--neutral",
+        "align_text": "text-center",
+        "scale_image": true,
+        "aspect_ratio": 1
+      }
+    },
+    "163275294295dc2d91": {
+      "type": "section-columns",
+      "blocks": {
+        "163275294295dc2d91-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "163275294295dc2d91-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "163275294295dc2d91-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "25e5b861-88b6-4398-bfe4-773e335993e2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "09b613f9-7cdc-4cda-9236-c83c9514c58d": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "163275294295dc2d91-0",
+        "163275294295dc2d91-1",
+        "163275294295dc2d91-2",
+        "25e5b861-88b6-4398-bfe4-773e335993e2",
+        "09b613f9-7cdc-4cda-9236-c83c9514c58d"
+      ],
+      "settings": {
+        "title": "",
+        "bg": "section bg--neutral",
+        "align_text": "text-center",
+        "scale_image": true,
+        "aspect_ratio": 1
+      }
+    },
+    "1632754346b80f969e": {
+      "type": "section-columns",
+      "blocks": {
+        "1632754346b80f969e-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632754346b80f969e-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632754346b80f969e-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "196b439c-7891-4a10-9139-bb2cff390a8c": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "835d29ed-4d90-4cfd-8a23-9989c1aeb7bb": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "1632754346b80f969e-0",
+        "1632754346b80f969e-1",
+        "1632754346b80f969e-2",
+        "196b439c-7891-4a10-9139-bb2cff390a8c",
+        "835d29ed-4d90-4cfd-8a23-9989c1aeb7bb"
+      ],
+      "settings": {
+        "title": "",
+        "bg": "section bg--neutral",
+        "align_text": "text-center",
+        "scale_image": true,
+        "aspect_ratio": 1
+      }
+    },
+    "16327546825baf7908": {
+      "type": "section-richtext",
+      "settings": {
+        "kicker": "",
+        "title": "Our Background",
+        "text": "<p>Founded in 2010, V Syndicate® is a lifestyle brand dedicated to the leisure and smoking accessories industry. A commitment to innovation inspired us to create the world’s first flat herb grinder in the form of a wallet-sized card, appropriately titled the Grinder Card. This sleek tool is eco-friendly, utilizing only 5% of the metal that a typical grinder requires. The medical grade stainless steel prevents rust, while a variety of teeth sizes offer three flower texture options. Along with our other products, the Grinder Card is customizable to suit any advertising need, offering a memorable gift for customers who travel with their accessories.<\/p>",
+        "text_size": 1,
+        "text_columns": 1,
+        "align_text": "text-center",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--link",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "163275497430e93a85": {
+      "type": "section-richtext",
+      "settings": {
+        "kicker": "",
+        "title": "",
+        "text": "<p>We hold multiple licensing agreements and have worked with several renowned artists and brands in the industry, including Cheech and Chong, Snoop Dogg, and Wiz Khalifa. We aim to assist companies in growing their brand with the use of viral promotional products that are sure to leave a bold impression.<\/p>",
+        "text_size": 1,
+        "text_columns": 1,
+        "align_text": "text-center",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--link",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632754843fd5327dd": {
+      "type": "section-gallery",
+      "blocks": {
+        "1632754843fd5327dd-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/timeline-2020_copy_1024x1024_3602c98d-e847-409a-9929-8a1e60fa64c9.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1632754843fd5327dd-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "padding": false,
+        "scale_image": false,
+        "aspect_ratio": 1,
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632769674bb4e1653": {
+      "type": "section-newsletter",
+      "settings": {
+        "title": "Subscribe",
+        "richtext": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+        "bg": "section--dark bg--invert--accent"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "1632752855ecf6fdd9",
+    "1632752930ad44de75",
+    "163275294295dc2d91",
+    "1632754346b80f969e",
+    "16327546825baf7908",
+    "163275497430e93a85",
+    "1632754843fd5327dd",
+    "1632769674bb4e1653"
+  ]
+}

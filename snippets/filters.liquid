@@ -1,0 +1,93 @@
+<form data-collection-filters-form>
+  {%- for filter in collection.filters -%}
+    <div class="collection__filter__group">
+      <p class="sidebar__heading">
+        <span>{{ filter.label }}</span>
+        {%- if filter.active_values.size > 0 -%}
+          <span>({{ filter.active_values.size }})</span>
+        {%- endif -%}
+      </p>
+
+      {%- case filter.type -%}
+        {%- when 'list' -%}
+          <ul class="collection-nav">
+            {%- for filter_value in filter.values -%}
+              <li class="filter__button">
+                <input type="checkbox"
+                  name="{{ filter_value.param_name }}"
+                  value="{{ filter_value.value }}"
+                  id="filter-{{ filter.label }}-{{ forloop.index }}"
+                  {% if filter_value.active -%}checked{%- endif %}
+                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+                <label for="filter-{{ filter.label }}-{{ forloop.index }}">{{ filter_value.label }}{% render 'icon-box' %}{% render 'icon-reset' %}</label>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- when 'price_range' -%}
+          <div class="filter__price" data-range-holder>
+            {%- assign filter_max_money = filter.range_max | money_without_currency | replace: ',', '' -%}
+            {%- assign filter_max_money_ceil = filter_max_money | ceil -%}
+            {%- assign filter_min_value = 0 -%}
+            {%- assign filter_max_value = filter_max_money_ceil -%}
+
+            {% if filter.min_value.value -%}
+              {%- assign filter_min_value = filter.min_value.value | money_without_currency | replace: ',', '' | floor -%}
+            {%- endif %}
+
+            {% if filter.max_value.value -%}
+              {%- assign filter_max_value = filter.max_value.value | money_without_currency | replace: ',', '' | ceil -%}
+            {%- endif %}
+
+            <div class="filter__price__range range" data-range-slider data-range-filter-update data-se-min="0" data-se-step="1" data-se-min-value="{{ filter_min_value }}" data-se-max-value="{{ filter_max_value }}" data-se-max="{{ filter_max_money_ceil }}">
+              <div class="range__dot range__dot--left" data-range-left>
+                <span>&nbsp;</span>
+              </div>
+              <div class="range__dot range__dot--right" data-range-right>
+                <span>&nbsp;</span>
+              </div>
+              <div class="range__line">
+                <span data-range-line>&nbsp;</span>
+              </div>
+            </div>
+
+            <div class="filter__price__fields">
+              <div class="filter__price__field filter__price__from">
+                <span>{{ cart.currency.symbol }}</span>
+  
+                <input 
+                  data-field-price-min
+                  class="filter__price__input"
+                  name="{{ filter.min_value.param_name }}"
+                  id="filter-price-from-{{ filter.label }}-{{ forloop.index }}"
+                  value="{{ filter_min_value }}"
+                  type="number"
+                  placeholder="{{ filter_min_value }}"
+                  min="0"
+                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+  
+                <label for="filter-price-from-{{ filter.label }}-{{ forloop.index }}">{{ 'products.general.from' | t }}</label>
+              </div>
+              <div class="filter__price__spacer">-</div>
+              <div class="filter__price__field filter__price__to">
+                <span>{{ cart.currency.symbol }}</span>
+  
+                <input 
+                  data-field-price-max
+                  class="filter__price__input"
+                  name="{{ filter.max_value.param_name }}"
+                  id="filter-price-to-{{ filter.label }}-{{ forloop.index }}"
+                  value="{{ filter_max_value }}"
+                  type="number"
+                  placeholder="{{ filter_max_value }}"
+                  min="0"
+                  max="{{ filter_max_money_ceil }}">
+  
+                <label for="filter-price-to-{{ filter.label }}-{{ forloop.index }}">To</label>
+              </div>
+            </div>
+          </div>
+        {%- else -%}
+      {%- endcase -%}
+    </div>
+  {%- endfor -%}
+</form>

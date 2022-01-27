@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {
+        "kicker": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 1,
+        "align_text": "text-left",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632752261871ffc13": {
+      "type": "section-richtext",
+      "settings": {
+        "kicker": "",
+        "title": "",
+        "text": "<p><em>High<\/em> there! Got some questions? We got you! Just go ahead and<br\/>click one of the icons below and fill out the forms and we'll be happy to assist you! <\/p>",
+        "text_size": 1,
+        "text_columns": 1,
+        "align_text": "text-center",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--link",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1632752244780728bb": {
+      "type": "section-columns",
+      "blocks": {
+        "1632752244780728bb-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image": "shopify:\/\/shop_images\/WEBSITE_ASSETS-25_3_480x480_fc3b7ff3-caf6-4d5a-8c44-e885931074df.png",
+            "img_url": "",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632752244780728bb-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/WEBSITE_ASSETS-25_2_480x480_72edeaa9-f68a-4046-9f7e-19b4b84bebb6.png",
+            "img_url": "https:\/\/wholesale-vsyndicate.myshopify.com\/",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        },
+        "1632752244780728bb-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image": "shopify:\/\/shop_images\/WEBSITE_ASSETS-25_1_480x480_13d3b655-d62e-407e-af8b-b7f8864bb0f5.png",
+            "img_url": "",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "enable_video": false,
+            "video_link": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "1632752244780728bb-0",
+        "1632752244780728bb-1",
+        "1632752244780728bb-2"
+      ],
+      "settings": {
+        "title": "",
+        "bg": "section bg--neutral",
+        "align_text": "text-center",
+        "scale_image": false,
+        "aspect_ratio": 1
+      }
+    },
+    "1632769624d4618ba9": {
+      "type": "section-newsletter",
+      "settings": {
+        "title": "SUBSCRIBE",
+        "richtext": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+        "bg": "section--dark bg--invert--accent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1632752261871ffc13",
+    "1632752244780728bb",
+    "1632769624d4618ba9"
+  ]
+}

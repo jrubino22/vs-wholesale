@@ -1,0 +1,90 @@
+{
+  "sections": {
+    "1636577780515231ae": {
+      "type": "section-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/VSyndicate_WebsiteBanner_PrivateLabeling_1600x_e50f4df0-4ec3-48de-ae65-009a18eba473.jpg",
+        "bg_position": "center-center",
+        "height": "use_screen_one_half",
+        "overlay_opacity": 15,
+        "overlay_color": "#000000",
+        "kicker": "",
+        "title": "",
+        "richtext": "",
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "btn"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+        "kicker": "",
+        "show_title": false,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-left",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "16365787595ed45490": {
+      "type": "section-custom-content",
+      "blocks": {
+        "1281614c-b9d8-42b1-892b-e19f0f198995": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "kicker": "Image with text",
+            "title": "",
+            "text": "<p>We have a private label program<\/p>",
+            "text_size": 2,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "caps--link",
+            "text_color": "text--neutral",
+            "bg_color": "#ffffff"
+          }
+        },
+        "1beb6c12-ed14-4e0a-9ce9-d35e2f688904": {
+          "type": "newsletter",
+          "settings": {
+            "kicker": "Coming soon",
+            "title": "",
+            "text": "<p>Enter your email and we will let you know when our private label customizer is available<\/p>",
+            "text_size": 2,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn--soft",
+            "text_color": "text--neutral",
+            "bg_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "1281614c-b9d8-42b1-892b-e19f0f198995",
+        "1beb6c12-ed14-4e0a-9ce9-d35e2f688904"
+      ],
+      "settings": {
+        "height": "use_screen_three_quarters",
+        "padding": false,
+        "borders": false,
+        "wrapper": false
+      }
+    }
+  },
+  "order": [
+    "1636577780515231ae",
+    "main",
+    "16365787595ed45490"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "blog",
+      "settings": {
+        "layout": "grid",
+        "blog_show_meta": true,
+        "overlay_opacity": 30,
+        "overlay_color": "#000",
+        "image_height": "use_screen_one_third",
+        "text_color": "text--white",
+        "tags": false
+      }
+    },
+    "1632769707035e401e": {
+      "type": "section-newsletter",
+      "settings": {
+        "title": "Subscribe",
+        "richtext": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+        "bg": "section--dark bg--invert--accent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1632769707035e401e"
+  ]
+}

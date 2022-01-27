@@ -1,0 +1,110 @@
+<!-- /snippets/collection-filters-sidebar.liquid -->
+{% comment %}
+  The collection sidebar containing tag filering and link-based navigation
+
+  * collection {object} - The current collection
+  * section {object} - The current section
+
+  {% render 'collection-filters-sidebar', section: section, collection: collection %}
+{% endcomment %}
+
+{%- assign collection_handle = 'all' -%}
+{%- if collection.handle -%}
+  {%- assign collection_handle = collection.handle -%}
+{%- endif -%}
+
+{%- assign filter_count = 0 -%}
+{%- capture filter_clears -%}
+  {%- for filter in collection.filters -%}
+    {% if filter.type == "price_range"  %}
+      {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+        {%- assign filter_count = filter_count | plus: 1 -%}
+        <a class="active__filters__remove" href="{{ filter.url_to_remove }}">
+          {%- assign min_value = filter.min_value.value | default: 0 -%}
+          {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+          {{ min_value | money_without_trailing_zeros }} - {{ max_value | money_without_trailing_zeros }} X
+        </a>
+      {%- endif -%}
+    {% else %}
+      {%- for filter_value in filter.active_values -%}
+        {%- assign filter_count = filter_count | plus: 1 -%}
+        <a class="active__filters__remove" href="{{ filter_value.url_to_remove }}">
+          {{ filter_value.label }} <span class="filter__x">X</span>
+        </a>
+      {%- endfor -%}
+    {% endif %}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if filter_count > 0 -%}
+  <div class="collection__active__filters">
+    {%- if filter_count > 1 -%}
+      <a href="{{ collection.url }}" class="active__filters__clear">{{ 'collections.sidebar.all_tags' | t }}</a>
+    {%- endif -%}
+    {{ filter_clears }}
+  </div>
+{%- endif -%}
+
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+
+  {%- when 'filters' -%}
+    {% render 'filters', collection: collection %}
+    
+  {%- when 'nav_links' -%}
+    {% unless block.settings.collection_linklist == blank or block.settings.collection_linklist.empty? %}
+      {% assign custom_nav_list = block.settings.collection_linklist | handleize %}
+      <div class="collection__filter__group">
+        <p class="sidebar__heading">{{ linklists[custom_nav_list].title }}</p>
+        <div class="collection-nav">
+          {% for link in linklists[custom_nav_list].links %}
+            {% if link.links == blank %}
+              <div class="sidebar__item {% if link.active %} sidebar__item--active{% endif %}">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {% render 'icon-box' %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% for link in linklists[custom_nav_list].links %}
+        {% if link.links != blank %}
+        <div class="collection__filter__group">
+          <p class="sidebar__heading">{{ link.title }}</p>
+          <div class="collection-nav">
+            {% for childlink in link.links %}
+              <div class="sidebar__item{% if childlink.active %} sidebar__item--active{% endif %}">
+                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                {% render 'icon-box' %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    {% endunless %}
+
+  {%- when 'collections' -%}
+    {% if collections.size > 1 %}
+      <div class="collection__filter__group">
+        <p class="sidebar__heading">{{ block.settings.title }}</p>
+        <ul class="collection-nav">
+          {% for collection_link in collections %}
+            {% unless collection_link.handle == 'frontpage' %}
+              <li class="sidebar__item{% if collection.handle == collection_link.handle %} sidebar__item--active{% endif %}">
+                <a href="{{ routes.collections_url }}/{{ collection_link.handle }}">{{ collection_link.title }}</a>
+                {% render 'icon-box' %}
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+  {%- endcase -%}
+{%- endfor -%}
+
+
+
+
+

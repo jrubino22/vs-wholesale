@@ -1,0 +1,180 @@
+{
+  "sections": {
+    "16364758394305b588": {
+      "type": "section-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/WHOLESALE.png",
+        "bg_position": "center-bottom",
+        "height": "use_screen_one_half",
+        "overlay_opacity": 15,
+        "overlay_color": "#000000",
+        "kicker": "",
+        "title": "",
+        "richtext": "",
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "btn"
+      }
+    },
+    "1636657003f4a257cf": {
+      "type": "section-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Grinder Cards",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "grindercards",
+        "grid": 4,
+        "rows": 1,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "16366569972e29f496": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Grinders and Grinder Cards",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "herb-grinders",
+        "grid": 5,
+        "rows": 2,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "1636657024350a772e": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Rolling Trays",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "rolling-trays",
+        "grid": 5,
+        "rows": 2,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "1636656224bced9b76": {
+      "type": "section-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Rolling Tray Lids",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "mag-slaps",
+        "grid": 5,
+        "rows": 2,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "1636657000e1a7ff31": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Herb Storage",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "stash-storage",
+        "grid": 5,
+        "rows": 2,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "16366569105451b10d": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Blazin' Ashtrays Glass",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "glass-ashtrays",
+        "grid": 5,
+        "rows": 1,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "16366569935b114ee8": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Blazin' Ashtrays Metal",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "blazin-ashtrays-metal",
+        "grid": 5,
+        "rows": 1,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "16366572497fffd389": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Dabbing",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "dabbing",
+        "grid": 5,
+        "rows": 2,
+        "bg": "section bg--neutral",
+        "show_view_all": true
+      }
+    },
+    "163665702859229b0e": {
+      "type": "section-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured Products",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "",
+        "grid": 3,
+        "rows": 1,
+        "bg": "section bg--neutral",
+        "show_view_all": false
+      }
+    },
+    "1636657251fad778b0": {
+      "type": "section-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured Products",
+        "show_quantity": true,
+        "show_remaining": true,
+        "product_form": true,
+        "collection": "",
+        "grid": 3,
+        "rows": 1,
+        "bg": "section bg--neutral",
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "16364758394305b588",
+    "1636657003f4a257cf",
+    "16366569972e29f496",
+    "1636657024350a772e",
+    "1636656224bced9b76",
+    "1636657000e1a7ff31",
+    "16366569105451b10d",
+    "16366569935b114ee8",
+    "16366572497fffd389",
+    "163665702859229b0e",
+    "1636657251fad778b0"
+  ]
+}

@@ -1,0 +1,190 @@
+
+{% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
+    
+    {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
+    {% assign  wcp_price = wcp_price | minus: 0 %}
+    
+    {%- capture wcp_compare_at_price  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price' -%}{%- endcapture -%}
+    {% if wcp_compare_at_price != blank %}
+        {% assign  wcp_compare_at_price = wcp_compare_at_price | minus: 0 %}
+    {% else %}
+    {% assign  wcp_compare_at_price = nil %}
+    {% endif %}
+    
+    {%- capture wcp_compare_at_price_min  -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_min' -%}{%- endcapture -%}
+    {% assign  wcp_compare_at_price_min = wcp_compare_at_price_min | minus: 0 %}
+    
+    {%- capture wcp_compare_at_price_max  -%}{%- render 'wcp_render_discount', wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_compare_at_price_max' -%}{%- endcapture -%}
+    {% assign  wcp_compare_at_price_max = wcp_compare_at_price_max | minus: 0 %}
+    
+    {%- capture wcp_price_min -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_min' -%}{%- endcapture -%}
+    {% assign  wcp_price_min = wcp_price_min | minus: 0 %}
+    
+    {%- capture wcp_price_max -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price_max' -%}{%- endcapture -%}
+    {% assign  wcp_price_max = wcp_price_max | minus: 0 %}
+    
+    
+    {%- capture v_discount_tag -%}{%-render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'v_discount_tag'-%}{%- endcapture -%}
+    {% assign v_discount_tag = v_discount_tag | strip %}
+    
+    {%- capture p_discount_tag -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'p_discount_tag' -%}{%- endcapture -%}
+    {% assign p_discount_tag = p_discount_tag | strip %}
+    
+    {% assign raw_set_prices = product.metafields.wcp_set_prices.wcp_set_prices %}
+    {% assign set_prices_array = blank %}
+    {% if raw_set_prices %}
+        {% assign set_prices_array = raw_set_prices | split: ',' %}
+    {% endif %}
+    
+    {%- capture wcp_discount_value -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_discount_value' -%}{%- endcapture -%}
+    
+    {% capture wcp_v_discounted_prices %}{%- render 'wcp_variant' , wcp_variant:product.selected_or_first_available_variant , set_prices_array:set_prices_array , wpd_is_render:'yes', v_discount_tag : v_discount_tag , wcp_discount_value : wcp_discount_value -%}{%- endcapture -%}
+    
+    {%- capture wcp_v_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_price' -%}{%- endcapture -%}
+    {% assign  wcp_v_price = wcp_v_price | minus: 0 %}
+    
+    {%- capture wcp_v_compare_at_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wcp_v_discounted_prices, price_variable:'wcp_v_compare_at_price' -%}{%- endcapture -%}
+    {% if wcp_v_compare_at_price != blank %}
+        {% assign  wcp_v_compare_at_price = wcp_v_compare_at_price | minus: 0 %}
+    {% else %}
+    {% assign  wcp_v_compare_at_price = nil %}
+    {% endif %}
+{% comment %}
+  * Returns a popdown object, requires version key
+
+  -  version {string} - Sets the popdown ID and wrapper class
+{% endcomment %}
+
+<div data-search-popdown-wrap>
+  <div id="{{ version }}" class="{{ version }} search__predictive" data-popdown-outer>
+    <div class="item--loadbar" data-loading-indicator style="display: none;"></div>
+    <div class="search__predictive__outer">
+      <div class="wrapper">
+        <div class="search__predictive__main">
+          <form class="search__predictive__form"
+              action="{{ routes.search_url }}"
+              method="get"
+              role="search">
+            <button class="search__predictive__form__button" type="submit">
+              <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>
+              {% render 'icon-search' %}
+            </button>
+            <input type="search"
+            data-predictive-search-input
+            name="q" 
+            value="" 
+            placeholder="{{ 'general.search.placeholder_short' | t }}" 
+            aria-label="{{ 'general.search.placeholder' | t }}">
+          </form>
+          <div class="search__predictive__close">
+            <button class="search__predictive__close__inner" data-close-popdown aria-label="{{ 'general.accessibility.close' | t }}">
+              {% render 'icon-close-small' %}
+            </button>
+          </div>
+
+          <div class="search__predictive__clear">
+            <button class="search__predictive__close__inner" data-clear-input aria-label="{{ 'general.accessibility.close' | t }}">
+              {% render 'icon-close' %}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__search__results" data-predictive-search-results>
+      <div class="wrapper">
+        <div class="search__results__empty" data-predictive-search-aria></div>
+        <div class="search__results__outer">
+
+          <div class="search__results__products">
+            <div class="search__results__products__title" data-product-title-wrap></div>
+            <div class="search__results__products__list" data-product-wrap>
+              {% comment %} data-search-product-template results append here {% endcomment %}
+            </div>
+          </div>
+          <div class="search__results__other">
+            <div class="search__results__other__list" data-collection-wrap></div>
+            <div class="search__results__other__list" data-article-wrap></div>
+            <div class="search__results__other__list" data-page-wrap></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if version == 'search-popdown' %}  
+    <span class="drawer__underlay" data-search-underlay></span>
+  {% endif %}
+
+  <script data-predictive-search-aria-template type="text/x-template">
+    <div aria-live="polite">
+      <p>
+        {% raw %}
+          {{@if(it.count)}}
+            <span class="badge">{{ it.count }}</span>
+          {{/if}}
+          {{ it.title }} <em>{{ it.query }}</em>
+        {% endraw %}
+      </p>
+    </div>
+  </script>
+
+  <script data-predictive-search-title-template type="text/x-template">
+    <div class="search__results__heading">
+      {% raw %}
+        <p>
+          <span class="search__results__title">{{ it.title }}</span>
+          <span class="badge">{{ it.count }}</span>
+        </p>
+      {% endraw %}
+    </div>
+  </script>
+
+  <script data-search-other-template type="text/x-template">
+    {% raw %}
+      {{@each(it) => object, index}}
+        <div class="other__inline animates" style="animation-delay: {{ index | animationDelay }}ms;">
+          <p class="other__inline__title">
+            <a href="{{ object.url }}">{{ object.title | safe }}</a>
+          </p>
+        </div>
+      {{/each}}
+    {% endraw %}
+  </script>
+
+  <script data-search-product-template type="text/x-template">
+    {% raw %}
+      {{@each(it) => object, index}}
+        <a href="{{ object.url }}" class="product__inline animates" style="animation-delay: {{ index | animationDelay }}ms;">
+          <div class="product__inline__image">
+            <img class="img-aspect-ratio" width="{{object.featured_image.width}}" height="{{ object.featured_image.height }}" alt="{{ object.featured_image.alt }}" src="{{ object.thumb }}">
+          </div>
+          <div>
+            <p class="product__inline__title">
+              {{ object.title | safe }}
+            </p>
+            <p class="product__inline__price">
+              <span class="price {{ object.classes }}">
+                {{ object.price | safe }}
+              </span>
+              {{@if(object.sold_out)}}
+                <br /><em>{{ object.sold_out_translation }}</em>
+              {{/if}}
+              {{@if(object.on_sale)}}
+                <span class="compare-at">
+                  {{ object.compare_at_price | safe }}
+                </span>
+              {{/if}}
+            </p>
+          </div>
+        </a>
+      {{/each}}
+    {% endraw %}
+  </script>
+
+</div>
+{%- assign wcp_prd_var = product -%}
+{%- unless wcp_prd_var == empty -%}
+            <script type='application/json' class='{%- for wcp_v in wcp_prd_var.variants -%} wcp_json_{{wcp_v.id}} {%- endfor -%} wcp_json_{{ wcp_prd_var.id }} wcp_json' id='wcp_json_{{ wcp_prd_var.id }}' > 
+                {%- render 'wcp_product_json' with wcp_prd_var -%}
+            </script>
+{%- endunless -%}

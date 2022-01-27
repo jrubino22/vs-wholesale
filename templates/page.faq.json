@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "hero": {
+      "type": "section-hero",
+      "settings": {
+        "bg_position": "center-center",
+        "height": "use_screen_one_fifth",
+        "overlay_opacity": 50,
+        "overlay_color": "#000000",
+        "kicker": "",
+        "title": "FAQ",
+        "richtext": "",
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "btn"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+        "kicker": "",
+        "show_title": false,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-left",
+        "height": "margin--medium",
+        "width": "wrapper--narrow",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "faq": {
+      "type": "section-faq",
+      "blocks": {
+        "faq-0": {
+          "type": "text",
+          "settings": {
+            "title": "Do you offer wholesale?",
+            "content": "<p>Yes, we offer wholesale on our stock products. Please refer to our “Wholesale” tab. Wholesale products are sold to qualified businesses only.<\/p>"
+          }
+        },
+        "faq-1": {
+          "type": "text",
+          "settings": {
+            "title": "How can I place a wholesale order?",
+            "content": "<p>Please head to our “Wholesale” tab and submit an inquiry. You will receive a response from our staff in 24-48 hours.<\/p>"
+          }
+        },
+        "faq-2": {
+          "type": "text",
+          "settings": {
+            "title": "How long does it take to process my wholesale order?",
+            "content": "<p>Please direct your questions to info@v-syndicate.com and our staff will reply within 24-48 hours.<\/p>"
+          }
+        },
+        "8630be87-ac8d-48c0-8180-560097ce5a0c": {
+          "type": "text",
+          "settings": {
+            "title": "Is there a minimum purchase requirement?",
+            "content": "<p>Please contact info@v-syndicate.com, minimum order quantities vary for most products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-0",
+        "faq-1",
+        "faq-2",
+        "8630be87-ac8d-48c0-8180-560097ce5a0c"
+      ],
+      "settings": {
+        "title": "Wholesale",
+        "align_text": "text-left",
+        "text_size": 1,
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    },
+    "1634235534d60a43e8": {
+      "type": "section-faq",
+      "blocks": {
+        "1634235534d60a43e8-0": {
+          "type": "text",
+          "settings": {
+            "title": "I'm interested in a custom tray, can I order just one?",
+            "content": "<p>We do not offer one offs—there is a minimum purchase requirement for every custom product. Please contact us for details.<\/p>"
+          }
+        },
+        "1634235534d60a43e8-1": {
+          "type": "text",
+          "settings": {
+            "title": "Can I submit a design for your stock trays?",
+            "content": "<p>At this time we are not taking private inquiries on stock product designs.<\/p>"
+          }
+        },
+        "1634235534d60a43e8-2": {
+          "type": "text",
+          "settings": {
+            "title": "Do you offer custom packaging for my custom order?",
+            "content": "<p>Custom Grinder Cards do have customizable sleeves, but not every item offers this option. Custom packaging is possible for most products, if minimum order quantities are met. Please inquire at info@v-syndicate.com for additional details.<\/p>"
+          }
+        },
+        "1a24377f-85ab-4bf2-812a-0ca67d49e730": {
+          "type": "text",
+          "settings": {
+            "title": "What is the production time on custom orders?",
+            "content": "<p>Production times vary between products. Grinder Cards, for example, take approximately 4-6 weeks to produce and ship and 3-4 weeks for repeat designs. For production times on our other custom products please contact info@v-syndicate.com.<\/p>"
+          }
+        },
+        "c39717f5-4fbf-49af-a4de-1789817db949": {
+          "type": "text",
+          "settings": {
+            "title": "What is the cost breakdown on custom products?",
+            "content": "<p>Prices vary between products. Please inquire at info@v-syndicate.com for pricing details.<\/p>"
+          }
+        },
+        "84e1656b-f50c-4e74-8b2f-0191b006fc67": {
+          "type": "text",
+          "settings": {
+            "title": "How much will I be required to pay upfront?",
+            "content": "<p>We require 50% of the payment to place the order, and the remaining 50% to ship the order.<\/p>"
+          }
+        },
+        "b8e4c021-8b8a-4d4f-8265-2a319aafbb12": {
+          "type": "text",
+          "settings": {
+            "title": "Is there a way to receive a sample of my custom product before I place an order?",
+            "content": "<p>Samples of any custom product can be made before mass production, please inquire at info@v-syndicate.com as product sample cost varies depending on which item.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1634235534d60a43e8-0",
+        "1634235534d60a43e8-1",
+        "1634235534d60a43e8-2",
+        "1a24377f-85ab-4bf2-812a-0ca67d49e730",
+        "c39717f5-4fbf-49af-a4de-1789817db949",
+        "84e1656b-f50c-4e74-8b2f-0191b006fc67",
+        "b8e4c021-8b8a-4d4f-8265-2a319aafbb12"
+      ],
+      "settings": {
+        "title": "Custom",
+        "align_text": "text-left",
+        "text_size": 1,
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text--neutral",
+        "bg": "section bg--neutral"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "faq",
+    "1634235534d60a43e8"
+  ]
+}
