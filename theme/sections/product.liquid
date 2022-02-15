@@ -16,6 +16,7 @@
   endif
 -%}
 
+
 <div class="product-section" 
   data-section-id="{{ section.id }}" 
   data-section-type="product"
@@ -281,10 +282,26 @@
       script.type = 'text/javascript';
       script.src = 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js';
       head.appendChild(script);
-    }  
+    } 
+
   </script>    
   {% endunless %}
+  <script>
+  
 
+    $(document).on("change",".selector-wrapper .radio__fieldset input[type='radio']",function(){
+    
+    
+      var id=$("input[name='id']").val();
+      var qty=$(this).closest(".shopify-product-form").find(".casestt").val();
+      var value=$("select[name='qunty_vl'] option[value='"+id+"']").attr("data-value");
+      var qtycase=parseInt(value)/parseInt(qty);
+      $(".inventory_cases").text(parseInt(qtycase))
+        $(this).closest(".shopify-product-form").find(".casestt").attr('data-quantity',qtycase);
+      
+    
+    })
+  </script>
 {% schema %}
 {
   "name": "Product page",
@@ -530,3 +547,13 @@
                 {%- render 'wcp_product_json' with wcp_prd_var -%}
             </script>
 {%- endunless -%}
+  
+  <style>
+  
+  .variant_inventory
+    {
+      display:none;
+    }
+    
+ 
+  </style>

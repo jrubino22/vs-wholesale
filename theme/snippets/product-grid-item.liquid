@@ -1,3 +1,4 @@
+
 {% capture wpd_discounted_prices %}{%- render 'wcp_discount'  wcp_discount:product , wpd_is_render:'yes' -%}{% endcapture %}
     
     {%- capture wcp_price -%}{%- render 'wcp_render_discount' , wpd_discounted_prices:wpd_discounted_prices, price_variable:'wcp_price' -%}{%- endcapture -%}
@@ -188,8 +189,9 @@
   {%- endcapture -%}
 {%- endif -%}
 
+
 <div class="product-grid-item {{ image_classes }}{% if on_sale %} on-sale{% endif %}{% if tagged %} tagged{% endif %}" data-grid-item>
-  <div {{ auto_height }} class="product-image">
+  <div {{ auto_height }}>
     <a href="{{ product.url | within: collection }}" data-grid-link class="lazy-image{% if double_img %} double__image{% endif %}" aria-label="{{ product.title | strip_html | escape }}" style="padding-top:{{ image_ratio }}%; background-image:  url('{{ product.featured_media.preview_image | img_url: '1x1' }}');">
       <div class="lazyload fade-in collection__image__top"
         data-bgset="{% render 'bgset', image: product.featured_media.preview_image %}" 
@@ -216,7 +218,7 @@
       <p class="product__grid__title">
         {{ product.title }}
       </p>
- {% if customer and customer.tags contains 'retail' or customer.tags contains 'distributor' or customer.tags contains 'master-distributor' %}
+      {% if customer and customer.tags contains 'retail' or customer.tags contains 'distributor' or customer.tags contains 'master-distributor' %}
       <div class="product__grid__price">
         <span class="price{% if on_sale %} on-sale{% endif %}">
           {% if product.price_varies %}{{ 'products.general.from' | t }} {% endif %}
@@ -251,7 +253,7 @@
 
         {{ swatches }}
       </div>
-{% endif %}
+      {% endif %}
     </a>
   </div>
     {% if product_form %}
@@ -261,7 +263,7 @@
   data-enable-video-looping="false" 
   data-thumbs-align="center" 
   data-enable-history-state="true">
-    {% render 'product-form', product: product, show_quantity: show_quantity, show_remaining: show_remaining %}
+    {% render 'product-form', product: product %}
     <script data-product-add-popdown-template type="text/x-template">
   <div class="product__popdown__outer">
 

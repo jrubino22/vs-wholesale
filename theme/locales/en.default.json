@@ -338,7 +338,7 @@
       "unit_price_label": "Unit price",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
-      "remaining_html": "Only {{ inventory }} left in stock",
+      "remaining_html": "{{ inventory }} units",
       "view_in_space": "View in your space",
       "join_membership": "Join Now",
       "pickup_availability": {

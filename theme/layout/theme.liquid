@@ -171,6 +171,8 @@
   {{ content_for_header }}
 
 {% include 'globo.formbuilder.scripts' %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if customer %} customer-logged-in{% endif %}">
@@ -258,4 +260,75 @@
                {% endif %}
                <!-- WPD End -->
   </body>
+  <script>
+    $(document).on("change",".product__form__select",function(){
+ 
+      var id=$(this).closest(".shopify-product-form").find("input[name='id']").val();
+      var qty=$(this).closest(".shopify-product-form").find(".casestt").val();
+      var value=$(this).closest(".shopify-product-form").find("select[name='qunty_vl'] option[value='"+id+"']").attr("data-value");
+     
+      var qtycase=parseInt(value)/parseInt(qty);
+      $(this).closest(".shopify-product-form").find(".variant_inventory").text(parseInt(value))
+      $(this).closest(".shopify-product-form").find(".inventory_cases").text(parseInt(qtycase))
+      $(this).closest(".shopify-product-form").find(".casestt").attr('data-quantity',qtycase);
+  
+  })
+    
+      $(document).on("click",".quantity__button--plus-case",function(e){
+       e.preventDefault()
+      var qty=$(this).closest(".shopify-product-form").find(".quantity__input_case").val(); 
+      qty=parseInt(qty)+1;
+      var caset=$(this).closest(".shopify-product-form").find(".casestt").attr('data-quantity');
+   var minmul=$(this).closest(".shopify-product-form").find(".casestt").val();
+      if(caset>=qty)
+      {
+       $(this).closest(".shopify-product-form").find(".quantity__input_case").val(qty) ;
+        var qunt=parseInt(minmul)*parseInt(qty)
+        $(this).closest(".shopify-product-form").find(".quantity__input").val(qunt);
+      }
+      
+    })
+    
+      $(document).on("click",".quantity__button--minus-case",function(e){
+       e.preventDefault()
+      var qty=$(this).closest(".shopify-product-form").find(".quantity__input_case").val(); 
+        if(qty>=2)
+        {
+     	 qty=parseInt(qty)-1;
+        }
+        
+      var caset=$(this).closest(".shopify-product-form").find(".casestt").attr('data-quantity');
+        var minmul=$(this).closest(".shopify-product-form").find(".casestt").val();
+       
+      if(caset>=qty)
+      {
+       $(this).closest(".shopify-product-form").find(".quantity__input_case").val(qty) ;
+        var qunt=parseInt(minmul)*parseInt(qty)
+        $(this).closest(".shopify-product-form").find(".quantity__input").val(qunt);
+      }
+      
+    });
+    
+    $(document).on("change",".quantity__input_case",function(e){
+       e.preventDefault();
+      var qty=$(this).val(); 
+      var caset=$(this).closest(".shopify-product-form").find(".casestt").attr('data-quantity');
+      var minmul=$(this).closest(".shopify-product-form").find(".casestt").val();
+      if(qty >=caset)
+      {
+        $(this).val(caset);
+         var qunt=parseInt(minmul)*parseInt(qty)
+        $(this).closest(".shopify-product-form").find(".quantity__input").val(qunt);
+      }
+      else
+      {
+         var qunt=parseInt(minmul)*parseInt(qty)
+        $(this).closest(".shopify-product-form").find(".quantity__input").val(qunt);
+      }
+       
+    });
+
+   
+  </script>
 </html>
+

@@ -1,0 +1,117 @@
+.product-grid-item  {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.product__grid__info--under {
+  flex-grow: 2;
+}
+.product-section.alt {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.login-button {
+  max-width: 180px;
+  margin: auto;
+}
+
+.btn--add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-page .product__price__main.price-container {
+    display: none;
+}
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price-container span {
+  padding-right: 5px;
+  font-size: 16px;
+}
+.product-grid-item .compare-at {
+  margin: 0px;
+}
+
+.product__grid__info .product__grid__price {
+  display: none;
+}
+
+.variant_level_opt
+{
+  position: relative;
+/*   text-align: center; */
+}
+
+.quanity_selctor_lab
+{
+padding: 5px;
+    border: 2px solid #c73535;
+    cursor: pointer;
+    z-index: 90;
+    color: #000;
+    border-radius: 4px;
+}
+#variant--qunantity
+{
+      opacity: 0.01;
+    z-index: 100;
+  display:none
+}
+
+ .quanity-selecter-container input[type="checkbox"]:checked+label {
+    background-color: #c73535;
+    color: #fff;
+}
+
+ .quanity-selecter-container label {
+    font-weight: 700;
+    font-size: 14px;
+ }
+.quantity__input_case
+    {
+          display: block;
+    background: none;
+    text-align: center;
+    border: 1px solid var(--border);
+    width: 100%;
+    padding: 8px 30px;
+    margin: 0!important;
+    }
+    .quantity__button--minus-case
+    {
+      left:0;
+    }
+    .quantity__button--plus-case
+    {
+          right: 0;
+    }
+    
+   .quantity__button_case
+    {cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    top: 0;
+    bottom: 0;
+    border: 0;
+    background: none;
+    text-align: center;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all .2s ease-out;
+    }
+    .quantity__button_case:focus, .quantity__button_case:hover
+    {
+          color: #c73535;
+    outline: none;
+    }

@@ -114,7 +114,27 @@
     <div class="shop-pay-terms">
       {{ form | payment_terms }}
     </div>
-
+    {% assign quantdivcoll =1 %}
+    {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}
+   {% if  product.metafields.my_fields.case_1   != blank %}
+     {% assign quantdivcoll = product.metafields.my_fields.case_1 %}
+    {% endif %}
+  {% endif %}
+   {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}
+      {%- assign current_inventory = current_variant.inventory_quantity -%}
+         {% capture inventory %}
+               <span data-remaining-max="" data-remaining-count class="variant_inventory">{{ current_inventory | default: 0 }} </span>
+          {% endcapture %}
+        {% capture inventorycase %}
+               <span class="inventory_cases">{{ current_inventory | divided_by:quantdivcoll }} </span>
+          {% endcapture %}
+        	
+          <p class="variant__countdowndt" data-remaining-wrapper>
+            {{ 'products.product.remaining_html' | t: inventory: inventory }} ({{ inventorycase }} cases) left in stock
+          </p>
+   
+  <input type="hidden" class="collectioncase" value="{{ quantdivcoll }}">
+  {% endif %}
     {% unless product.has_only_default_variant %}
       <div class="form__selectors">
         {% for option in product.options_with_values %}
@@ -206,23 +226,14 @@
           <option
             {% if variant == current_variant %}selected="selected"{% endif %}
             {% unless variant.available %}disabled="disabled"{% endunless %}
-            value="{{ variant.id }}">
+            value="{{ variant.id }}" data-value="{{ variant.inventory_quantity }}">
               {{ variant.title }}
           </option>
         {% endfor %}
       </select>
     </noscript>
-
-    {%- if product.selling_plan_groups.size > 0 -%}
-      {% if block.settings.subscriptions_enable_selectors %}
-        {% render 'subscription-form', product: product %}
-      {%- endif -%}
-      {% comment %} Delete the following line to block the theme from updating subscription prices {% endcomment %} 
-      <span data-subscription-watch-price></span>
-    {%- endif -%}
-   
-    {% if block.settings.show_quantity or show_quantity %}
-      <div class="quantity__wrapper" data-quantity-selector>
+  
+      <div class="quantity__wrapper" data-quantity-selector  {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}style="display:none;"{% endif%}>
         <button class="quantity__button quantity__button--minus" data-decrease-quantity>&minus;</button>
         <input data-quantity-input
           aria-label="{{ 'cart.label.quantity' | t }}"
@@ -232,11 +243,53 @@
           size="4"
           pattern="[0-9]*"
           name="quantity"
-          value="1"/>
+          value="{% if product.metafields.my_fields.case_1 != blank %}{{product.metafields.my_fields.case_1 }}{% else %}1{% endif %}"/>
         <button class="quantity__button quantity__button--plus" data-increase-quantity>+</button>
       </div>
-    {% endif %}
+  
+    <select name="qunty_vl" class="no-js-qt" data-product-select aria-label="{{ product.options_with_values | map: 'name' | uniq | join: ', ' }}" style="display:none;">
+        {% for variant in product.variants %}
+          <option
+            
+            
+            value="{{ variant.id }}" data-value="{{ variant.inventory_quantity }}">
+              {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+
+    {%- if product.selling_plan_groups.size > 0 -%}
+      {% if block.settings.subscriptions_enable_selectors %}
+        {% render 'subscription-form', product: product %}
+      {%- endif -%}
+      {% comment %} Delete the following line to block the theme from updating subscription prices {% endcomment %} 
+      <span data-subscription-watch-price></span>
+    {%- endif -%}
+   
+
+  {% assign quantdiv = 1 %}
+  {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}
+  
+   <div class="quanity-selecter-container">
+     {% if product.metafields.my_fields.case_1 != blank %}
+     {% assign quantdiv = product.metafields.my_fields.case_1 %}
+     <p>Case(s)</p>
+     {% endif %}
+    <div class="variant_level_opt">
+
     
+      <div class="quantity__wrapper casequantitydata" >
+        <button class="quantity__button_case quantity__button--minus-case" >−</button>
+        <input  class="quantity__input_case" type="number" min="1" max="{{ product.metafields.my_fields.case_1 }}" size="4" pattern="[0-9]*" name="quantityt" value="1">
+        <button class="quantity__button_case quantity__button--plus-case" >+</button>
+      </div>
+     </div>
+ 
+     
+   </div>
+ {% endif%}
+  
+    <input type="hidden" class="casestt" value="{{ quantdiv }}" data-quantity="{{ current_inventory | divided_by:quantdiv }}">
     {%- if block.settings.show_remaining or size_chart_index == -1 or show_remaining -%}
       <div class="product__button__meta">
 
@@ -257,10 +310,14 @@
           {% capture inventory %}
                <span data-remaining-max="{{ max_inventory }}" data-remaining-count>{{ current_inventory | default: 0 }} </span>
           {% endcapture %}
+        {% capture inventorycase %}
+               <span class="inventory_cases">{{ current_inventory | divided_by:quantdiv }} </span>
+          {% endcapture %}
+        	 {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}
           <p class="variant__countdown {{ show_remaining_class }}" data-remaining-wrapper>
-            {{ 'products.product.remaining_html' | t: inventory: inventory }}
+            {{ 'products.product.remaining_html' | t: inventory: inventory }} ({{ inventorycase }} cases) left in stock
           </p>
-
+{% endif %}
           <script data-product-remaining-json type="application/json">
             {
               {%- for variant in product.variants -%}
