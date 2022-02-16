@@ -127,7 +127,8 @@
     assign tagged = true
   endif 
 -%}
-{%- capture badge -%}
+
+{%- capture badge -%}  
   {%- if tagged %}
     {%- if setting_badge -%}
       <div class="product__badge product__badge--setting">{{ badge_string }}</div>
