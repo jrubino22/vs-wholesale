@@ -268,26 +268,47 @@
    
 
   {% assign quantdiv = 1 %}
-  {% if customer.tags contains 'master-distributor' or customer.tags contains 'distributor' %}
+  {% if customer.tags contains 'master-distributor' %}
   
-   <div class="quanity-selecter-container">
-     {% if product.metafields.my_fields.case_1 != blank %}
-     {% assign quantdiv = product.metafields.my_fields.case_1 %}
-     <p>Case(s)</p>
-     {% endif %}
-    <div class="variant_level_opt">
+  <div class="quanity-selecter-container">
+    {% if product.metafields.my_fields.case_1 != blank %}s
+    {% assign quantdiv = product.metafields.my_fields.case_1 %}
+    {{ variant.metafields.my_fields.msrp }}
+    {% endif %}
+   <div class="variant_level_opt">
+
+   
+     <div class="quantity__wrapper casequantitydata" >
+       <button class="quantity__button_case quantity__button--minus-case" >−</button>
+       <input  class="quantity__input_case" type="number" min="1" max="{{ product.metafields.my_fields.case_1 }}" size="4" pattern="[0-9]*" name="quantityt" value="1">
+       <button class="quantity__button_case quantity__button--plus-case" >+</button>
+     </div>
+    </div>
 
     
-      <div class="quantity__wrapper casequantitydata" >
-        <button class="quantity__button_case quantity__button--minus-case" >−</button>
-        <input  class="quantity__input_case" type="number" min="1" max="{{ product.metafields.my_fields.case_1 }}" size="4" pattern="[0-9]*" name="quantityt" value="1">
-        <button class="quantity__button_case quantity__button--plus-case" >+</button>
-      </div>
-     </div>
+  </div>
+{% endif%}
  
-     
-   </div>
- {% endif%}
+   {% if customer.tags contains 'distributor' %}
+ 
+  <div class="quanity-selecter-container">
+    {% if product.metafields.my_fields.case_1 != blank %}s
+    {% assign quantdiv = product.metafields.my_fields.case_1 | divided_by: 2 %}
+    {{ variant.metafields.my_fields.msrp }}
+    {% endif %}
+   <div class="variant_level_opt">
+
+   
+     <div class="quantity__wrapper casequantitydata" >
+       <button class="quantity__button_case quantity__button--minus-case" >−</button>
+       <input  class="quantity__input_case" type="number" min="1" max="{{ quantdiv }}" size="4" pattern="[0-9]*" name="quantityt" value="1">
+       <button class="quantity__button_case quantity__button--plus-case" >+</button>
+     </div>
+    </div>
+
+    
+  </div>
+  {% endif%}
   
     <input type="hidden" class="casestt" value="{{ quantdiv }}" data-quantity="{{ current_inventory | divided_by:quantdiv }}">
     {%- if block.settings.show_remaining or size_chart_index == -1 or show_remaining -%}
